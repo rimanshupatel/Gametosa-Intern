@@ -21,7 +21,7 @@ const Navbar = () => {
                 src="https://gametosa.com/img/header.png"
                 alt="Demo Logo"
               /> */}
-              <h1 className="text-3xl text-white">QubeStat</h1>
+              <h1 className="text-3xl text-white">MATRIX</h1>
             </a>
           </div>
 

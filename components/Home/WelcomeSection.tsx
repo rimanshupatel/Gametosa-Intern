@@ -1,24 +1,11 @@
 import React from "react";
 
-const partners = [
-  "BNB CHAIN",
-  "Morningstar Ventures",
-  "CoinMarketCap",
-  "Acheron Trading",
-  "MuleSoft",
-  "Valhalla Capital",
-  "EnjinStarter",
-  "SEDULO",
-  "Venly",
-  "Results.io",
-];
-
 export default function WelcomeSection() {
   return (
     <div className="min-h-screen bg-[radial-gradient(ellipse_at_center,_#1f0a2e,_#000)] animate-gradient-shift text-white px-4 md:px-12 py-20 font-sans overflow-hidden">
       <div className="max-w-7xl mx-auto text-center relative">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight">
-          Welcome To <span className="text-cyan-500">QubeStat</span>
+          Welcome To <span className="text-cyan-500">MATRIX</span>
         </h1>
         <p className="mt-6 max-w-3xl mx-auto text-sm md:text-base text-gray-300 leading-relaxed">
           With More Than 3 Billion Active Gamers Globally Set To Transition Into
@@ -46,22 +33,6 @@ export default function WelcomeSection() {
               alt="Game Controllers"
               className="w-[400px] md:w-[450px] drop-shadow-[0_0_150px_rgba(34,211,238,0.5)]"
             />
-          </div>
-        </div>
-
-        <div className="mt-32">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-12">
-            Our <span className="text-cyan-400">Partners</span>
-          </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 md:gap-8 justify-center items-center">
-            {partners.map((partner, idx) => (
-              <div
-                key={idx}
-                className="bg-[#1b132e] text-white text-center py-4 px-3 rounded-lg shadow-md h-16 flex items-center justify-center text-sm font-medium border border-[#2b2544] hover:scale-105 transition-transform"
-              >
-                {partner}
-              </div>
-            ))}
           </div>
         </div>
       </div>

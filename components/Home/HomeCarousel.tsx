@@ -6,6 +6,8 @@ import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import { HomeCarouselData } from "@/constants/HomeCarousel";
 import Image from "next/image";
+import { Meteors } from "../magicui/meteors";
+import { Particles } from "../magicui/particles";
 const HomeCarousel = () => {
   const items = HomeCarouselData.map((items) => (
     <Image
@@ -15,19 +17,18 @@ const HomeCarousel = () => {
     />
   ));
   return (
-    <Container className="relative py-5 overflow-hidden ">
-      <div className="relative">
-        <AliceCarousel
-          items={items}
-          controlsStrategy="alternate"
-          autoPlay
-          autoPlayInterval={1500}
-          infinite
-          disableButtonsControls
-          animationType="slide"
-        />
-      </div>
-    </Container>
+    <div className="z-50">
+      <Particles className="absolute" />
+      <AliceCarousel
+        items={items}
+        controlsStrategy="alternate"
+        autoPlay
+        autoPlayInterval={1500}
+        infinite
+        disableButtonsControls
+        animationType="slide"
+      />
+    </div>
   );
 };
 

@@ -4,7 +4,7 @@ import GlitchButton from "../ui/GlitchButton";
 
 const HeroSection = () => {
   return (
-    <section className=" text-white py-20">
+    <section className=" text-white ">
       <div className="max-w-screen-xl mx-auto px-4 lg:px-0 flex flex-col md:flex-row items-center justify-between gap-12">
         {/* Left side - Text content */}
         <div className="flex-1 space-x-0.5 w-50%">
