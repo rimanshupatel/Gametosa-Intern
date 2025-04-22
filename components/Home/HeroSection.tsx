@@ -32,9 +32,8 @@ const HeroSection = () => {
         {/* Right side - Image */}
         <div className="flex-1">
           <div className="relative w-full h-80 md:h-96 lg:h-[500px] rounded-lg overflow-hidden">
-            {/* Using MAIN-Png from public folder */}
             <Image
-              src="/MAIN-Png.webp" // Make sure this matches your file name exactly
+              src="/MAIN-Png.webp"
               alt="Esports career opportunities"
               fill
               className="object-cover"

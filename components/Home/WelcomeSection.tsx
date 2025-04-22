@@ -36,7 +36,7 @@ export default function WelcomeSection() {
               Industry, Creating A More Inclusive, Engaging, And Rewarding
               Gaming Experience For Both Players And Developers
             </p>
-            <button className="bg-[#f03eb3] text-white px-6 py-2 rounded font-semibold shadow hover:bg-pink-600 transition-all">
+            <button className="bg-cyan-400/80 text-white px-6 py-2 rounded font-semibold shadow hover:bg-cyan-600 transition-all">
               View More
             </button>
           </div>
@@ -44,7 +44,7 @@ export default function WelcomeSection() {
             <img
               src="/welcomeClip.png"
               alt="Game Controllers"
-              className="w-[400px] md:w-[450px] drop-shadow-[0_0_100px_rgba(240,62,179,0.5)]"
+              className="w-[400px] md:w-[450px] drop-shadow-[0_0_150px_rgba(34,211,238,0.5)]"
             />
           </div>
         </div>
