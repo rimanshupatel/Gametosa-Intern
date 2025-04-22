@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image"; // If using Next.js
-import BrutualButton from "../ui/GlitchButton";
 import GlitchButton from "../ui/GlitchButton";
 
 const HeroSection = () => {
@@ -8,11 +7,16 @@ const HeroSection = () => {
     <section className=" text-white py-20">
       <div className="max-w-screen-xl mx-auto px-4 lg:px-0 flex flex-col md:flex-row items-center justify-between gap-12">
         {/* Left side - Text content */}
-        <div className="flex-1 space-y-6">
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-            Turn Your Passion Into Your Career!
-            <br />
-            <span className="text-blue-400">Get started With Us Today</span>
+        <div className="flex-1 space-x-0.5 w-50%">
+          <h1 className="text-5xl md:text-5xl font-bold leading-tight">
+            Turn Your <span className="text-cyan-400">Passion</span>
+          </h1>
+          <h1 className="text-5xl md:text-5xl font-bold leading-tight">
+            Into Your <span className="text-cyan-400">Carrier!</span>
+          </h1>
+
+          <h1 className="text-5xl md:text-5xl font-bold leading-tight">
+            Get started With Us Today
           </h1>
           <p className="text-lg text-gray-300">
             Grow in an Esports ecosystem with gamers & organizers alike

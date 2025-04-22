@@ -9,6 +9,7 @@ import HeroSection from "@/components/Home/HeroSection";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import Container from "@/components/ui/Container";
 import QuabStatTitle from "@/components/Home/QuabStatTitle";
+import WelcomeSection from "@/components/Home/WelcomeSection";
 
 const testimonials = [
   {
@@ -28,11 +29,11 @@ export default function Home() {
     <>
       <Navbar />
       <HomeCarousel />
-      <Container>
-        <HeroSection />
-        <QuabStatTitle />
-        <InfiniteMovingCards items={testimonials} />
-      </Container>
+
+      <HeroSection />
+      <QuabStatTitle />
+      <WelcomeSection />
+      <InfiniteMovingCards items={testimonials} />
       <Footer />
     </>
   );
