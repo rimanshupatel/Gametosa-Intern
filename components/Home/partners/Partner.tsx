@@ -12,14 +12,14 @@ export default function Partner() {
     {
       src: "https://gametosa.com/img/bwubi.png",
       alt: "Brainware Incubation",
-      width: 160,
+      width: 100,
       height: 100,
     },
     {
       src: "https://gametosa.com/img/nvidia-inception-program-badge-rgb-for-screen.jpg",
       alt: "Nvidia Inception",
       width: 160,
-      height: 200,
+      height: 220,
     },
     {
       src: "https://gametosa.com/img/msforstartupw.png",
@@ -37,21 +37,21 @@ export default function Partner() {
     {
       src: "https://gametosa.com/img/startupindia.png",
       alt: "Startup India",
-      width: 160,
-      height: 200,
+      width: 180,
+      height: 250,
     },
     {
       src: "https://gametosa.com/img/stpiimage.png",
       alt: "STPI IMAGE",
       width: 160,
-      height: 200,
+      height: 150,
       className: "bg-white rounded-[5%]",
     },
     {
       src: "https://gametosa.com/img/stpi.png",
       alt: "STPI",
-      width: 160,
-      height: 200,
+      width: 150,
+      height: 100,
     },
   ];
   const linkedPartnerImages = [
@@ -59,56 +59,66 @@ export default function Partner() {
       src: "https://gametosa.com/store/img/gauravgo.png",
       alt: "",
       href: "https://gauravgo.com",
-      width: "auto", // You can add specific width if needed
-      height: "auto", // You can add specific height if needed
+      width: 100,
+      height: 100,
     },
     {
       src: "https://gametosa.com/store/img/narqubisblue.png",
       alt: "",
       href: "https://narqubis.com",
-      width: "auto",
-      height: "auto",
+      width: 200,
+      height: 150,
     },
     {
       src: "https://gametosa.com/store/img/xsquads.png",
       alt: "",
       href: "https://xsquads.com",
-      width: "auto",
-      height: "auto",
+      width: 200,
+      height: 150,
     },
     {
       src: "https://gametosa.com/store/img/metashot.png",
       alt: "",
       href: "https://metashot.in",
-      width: "auto",
-      height: "auto",
+      width: 150,
+      height: 100,
     },
     {
       src: "https://gametosa.com/store/img/sherlock.png",
       alt: "",
       href: "https://sherlockstudio.in",
-      width: "auto",
-      height: "auto",
-    },
-    {
-      text: "and more...",
-      href: "",
+      width: 150,
+      height: 100,
     },
   ];
   return (
-    <section>
-      <InfiniteMovingImages
-        images={partnerImages.map((img) => img.src)}
-        direction="left"
-        speed="normal"
-        className="py-8"
-      />
-      <InfiniteMovingImages
-        images={linkedPartnerImages.map((img) => img.src)}
-        direction="right"
-        speed="fast"
-        className="py-8"
-      />
+    <section
+      className="py-8 bg-[radial-gradient(ellipse_at_center,rgba(10,30,80,0.6)_0%,rgba(0,0,0,0)_80%)] backdrop-blur-[1px]
+
+ flex flex-col justify-center items-center "
+    >
+      <div className="">
+        <h1 className="text-5xl font-bold capitalize text-cyan-500">
+          Powered by
+        </h1>
+        <InfiniteMovingImages
+          images={partnerImages}
+          direction="left"
+          speed="fast"
+          className="py-8"
+        />
+      </div>
+      <div className="">
+        <h1 className="text-5xl font-bold capitalize text-cyan-500">
+          backed by
+        </h1>
+        <InfiniteMovingImages
+          images={linkedPartnerImages}
+          direction="right"
+          speed="fast"
+          className="py-8"
+        />
+      </div>
     </section>
   );
 }

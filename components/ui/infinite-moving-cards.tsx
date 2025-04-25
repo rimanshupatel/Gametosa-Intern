@@ -3,25 +3,20 @@
 import { cn } from "@/lib/utils";
 import React, { useEffect, useState } from "react";
 
-type ImageItem =
-  | string
-  | {
-      src: string;
-      alt?: string;
-      href?: string;
-      width?: number | string;
-      height?: number | string;
-      className?: string;
-    };
-
 export const InfiniteMovingImages = ({
   images,
-  direction,
+  direction = "left",
   speed = "fast",
   pauseOnHover = true,
   className,
 }: {
-  images: ImageItem[];
+  images: {
+    src: string;
+    alt: string;
+    width?: number;
+    height?: number;
+    className?: string;
+  }[];
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
   pauseOnHover?: boolean;
@@ -29,12 +24,11 @@ export const InfiniteMovingImages = ({
 }) => {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const scrollerRef = React.useRef<HTMLUListElement>(null);
-  const [start, setStart] = useState(false);
 
   useEffect(() => {
     addAnimation();
   }, []);
-
+  const [start, setStart] = useState(false);
   function addAnimation() {
     if (containerRef.current && scrollerRef.current) {
       const scrollerContent = Array.from(scrollerRef.current.children);
@@ -51,89 +45,63 @@ export const InfiniteMovingImages = ({
       setStart(true);
     }
   }
-
   const getDirection = () => {
     if (containerRef.current) {
-      containerRef.current.style.setProperty(
-        "--animation-direction",
-        direction === "left" ? "forwards" : "reverse"
-      );
+      if (direction === "left") {
+        containerRef.current.style.setProperty(
+          "--animation-direction",
+          "forwards"
+        );
+      } else {
+        containerRef.current.style.setProperty(
+          "--animation-direction",
+          "reverse"
+        );
+      }
     }
   };
-
   const getSpeed = () => {
     if (containerRef.current) {
-      containerRef.current.style.setProperty(
-        "--animation-duration",
-        speed === "fast" ? "20s" : speed === "normal" ? "40s" : "80s"
-      );
+      if (speed === "fast") {
+        containerRef.current.style.setProperty("--animation-duration", "20s");
+      } else if (speed === "normal") {
+        containerRef.current.style.setProperty("--animation-duration", "40s");
+      } else {
+        containerRef.current.style.setProperty("--animation-duration", "80s");
+      }
     }
   };
-
-  const renderImage = (item: ImageItem, idx: number) => {
-    if (typeof item === "string") {
-      return (
-        <li
-          className="relative w-[200px] shrink-0 rounded-lg overflow-hidden "
-          key={`${item}-${idx}`}
-        >
-          <img
-            src={item}
-            alt=""
-            className="w-full h-full object-contain"
-            width={200}
-            height={200}
-          />
-        </li>
-      );
-    }
-
-    const imageElement = (
-      <img
-        src={item.src}
-        alt={item.alt || ""}
-        className={cn("w-full h-full object-contain", item.className)}
-        width={typeof item.width === "number" ? item.width : 200}
-        height={typeof item.height === "number" ? item.height : 200}
-      />
-    );
-
-    return (
-      <li
-        className={cn(
-          "relative shrink-0 rounded-lg overflow-hidden",
-          typeof item.width === "string" ? item.width : "w-[200px]"
-        )}
-        key={`${item.src}-${idx}`}
-      >
-        {item.href ? (
-          <a href={item.href} target="_blank" rel="noopener noreferrer">
-            {imageElement}
-          </a>
-        ) : (
-          imageElement
-        )}
-      </li>
-    );
-  };
-
   return (
     <div
       ref={containerRef}
       className={cn(
-        "scroller relative z-20 w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
+        "scroller relative z-20 max-w-7xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
         className
       )}
     >
       <ul
         ref={scrollerRef}
         className={cn(
-          "flex w-max min-w-full shrink-0 flex-nowrap gap-4 items-center ",
+          "flex justify-center items-center w-max min-w-full shrink-0 flex-nowrap gap-4 py-4 ",
           start && "animate-scroll",
           pauseOnHover && "hover:[animation-play-state:paused]"
         )}
       >
-        {images.map((img, idx) => renderImage(img, idx))}
+        {images.map((image, idx) => (
+          <li
+            className="relative  max-w-full  shrink-0 rounded-2xl border border-b-0 border-zinc-200 bg-[linear-gradient(180deg,#fafafa,#f5f5f5)] px-8 py-6  dark:border-zinc-700 dark:bg-[linear-gradient(180deg,#27272a,#18181b)]"
+            key={`${image.alt}-${idx}`}
+          >
+            <img
+              src={image.src}
+              alt={image.alt}
+              width={image.width || 160}
+              height={image.height || 100}
+              className={cn("object-contain h-auto", image.className)}
+              loading="lazy"
+            />
+          </li>
+        ))}
       </ul>
     </div>
   );
